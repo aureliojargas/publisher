@@ -18,6 +18,26 @@
         input_html: { disabled: @resource.locked_for_edits? },
         wrapper_html: { class: "form-group add-bottom-margin" } %>
 
+  <div class="form-group" id="edition_title_input">
+    <label class="remove-bottom-margin">Alert the public to what’s changed in this edition?<abbr title="required">*</abbr></label>
+
+    <div class="radio">
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Yes
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> No
+      </label>
+    </div>
+
+    <blockquote class="add-top-margin text input optional form-group" id="edition_video_summary_input" style="padding: 20px; margin-left: 5px; background: #eee">
+      <label class="control-label" for="edition_video_summary">Public change note<abbr title="required">*</abbr></label>
+      <span class="form-wrapper">
+        <textarea class="form-control" id="edition_video_summary" name="edition[video_summary]" rows="5"></textarea>
+      </span>
+    </blockquote>
+  </div>
+
   <%= f.input :alternative_title,
         :label => 'Alternative title',
         :hint => 'Use this where longer title is needed for SEO purposes',
