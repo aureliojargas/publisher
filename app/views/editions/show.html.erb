@@ -7,13 +7,21 @@
       <span class="label label-default">Edition <%= @resource.version_number %></span>
       <span class="label label-info">Status: <%= @resource.status_text %></span>
     </span>
-  <% unless @resource.important_note.blank? %>
-    <br/>
-    <h2 class="important-note">
-      <%= @resource.important_note %>
-    </h2>
-  <% end %>
   </div>
+
+  <% unless @resource.important_note.blank? %>
+    <div class="alert alert-danger" style="background: #fff; border-width: 3px; border-color: #a94442">
+      <div class="add-label-margin">
+        Important note by Jon Sangar, 10 October
+      </div>
+        <!--<div class="add-label-margin bold" style="color: #a94442">Important note</div>-->
+        <div class="bold" style="font-size: 24px; line-height: 30px; color: #a94442">
+          <%= @resource.important_note %>
+        </div>
+
+    </div>
+  <% end %>
+
   <% if @resource.artefact.state == "archived" %>
     <div class="alert alert-error">
       <h2>Stop! You can't edit this publication because its artefact file in Panopticon has been archived.</h2>
