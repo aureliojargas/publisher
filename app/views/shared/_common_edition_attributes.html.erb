@@ -5,42 +5,43 @@
     <%= f.collection_select :assigned_to_id, User.order_by([[:name, :asc]]).all, :id, :name, {:prompt => "Select someone"}, {:class => 'form-control', :disabled => @resource.locked_for_edits?} %>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-7">
-  <%= f.input :title,
-        :input_html => { :autofocus => true, :disabled => @resource.locked_for_edits? } %>
+<div class="">
+  <div class="">
 
-  <%= f.input :in_beta,
-        as: :boolean,
-        label: 'Content is in beta',
-        hint: raw("A beta label will show beneath the title with a link to " +
-          link_to('beta services on GOV.UK', 'https://www.gov.uk/help/beta', class: 'link-inherit')),
-        input_html: { disabled: @resource.locked_for_edits? },
-        wrapper_html: { class: "form-group add-bottom-margin" } %>
+    <div class="form-group" id="edition_title_input">
 
-  <div class="form-group" id="edition_title_input">
-
-    <div class="add-top-margin text input optional form-group" id="edition_video_summary_input" style="">
-      <label class="control-label" for="edition_video_summary">Change note<abbr title="required">*</abbr></label>
-      <span class="form-wrapper">
-        <textarea class="form-control" id="edition_video_summary" name="edition[video_summary]" rows="5"></textarea>
-      </span>
+      <div class="add-top-margin text input optional form-group" id="edition_video_summary_input" style="">
+        <label class="control-label" for="edition_video_summary">Summary of changes to this edition</label>
+        <span class="form-wrapper">
+          <textarea class="form-control input-md-7" id="edition_video_summary" name="edition[video_summary]" rows="5"></textarea>
+        </span>
+        <div class="boolean input optional checkbox" id="edition_in_beta_input" style="background: #ddd; padding: 10px 15px; width: 652.5px; border-radius: 3px"><label class="control-label" for="x"><input id="x" name="x" type="checkbox">Alert the public to what’s changed</label>
+        </div>
+      </div>
     </div>
-  </div>
+    <hr />
 
-  <div class="add-bottom-margin boolean input optional checkbox" id="edition_in_beta_input"><label class="control-label" for="x"><input id="x" name="x" type="checkbox">Alert the public to what’s changed</label>
-  </div>
+  <%= f.input :title,
+        :input_html => { :autofocus => true, :disabled => @resource.locked_for_edits?, class: 'input-md-7 remove-bottom-margin' } %>
 
-  <%= f.input :alternative_title,
+
+
+  <!--<%= f.input :alternative_title,
         :label => 'Alternative title',
         :hint => 'Use this where longer title is needed for SEO purposes',
-        :input_html => { :autofocus => true, :disabled => @resource.locked_for_edits? } %>
+        :input_html => { :autofocus => true, :disabled => @resource.locked_for_edits? } %>-->
   </div>
-  <div class="col-md-10">
     <%= f.input :overview,
           :as => :text,
           :label => 'Meta tag description',
           :hint => 'Some search engines will display this if they can&rsquo;t find what they need in the main text',
-          :input_html => { :rows => 3, :disabled => @resource.locked_for_edits? } %>
-  </div>
+          :input_html => { :rows => 3, :disabled => @resource.locked_for_edits?, class: 'input-md-7' } %>
+
+          <div style="background: #ddd; padding: 10px 15px; width: 652.5px; border-radius: 3px" class="add-bottom-margin">
+          <%= f.input :in_beta,
+                as: :boolean,
+                label: 'Content is in beta',
+                input_html: { disabled: @resource.locked_for_edits? },
+                wrapper_html: { class: "remove-top-margin remove-bottom-margin" } %>
+          </div>
 </div>
