@@ -12,7 +12,7 @@ class Edition
     send_fact_check: "Send to Fact check",
     request_review: "Send to 2nd pair of eyes",
     schedule_for_publishing: "Schedule for publishing",
-    publish: "Send to publish",
+    publish: "Publish",
     approve_review: "OK for publication",
     request_amendments: "Request amendments",
     approve_fact_check: "Approve fact check"

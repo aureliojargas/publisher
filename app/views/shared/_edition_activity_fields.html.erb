@@ -11,13 +11,28 @@
 
       <% if activity == :send_fact_check %>
         <%= activity_fields.input :email_addresses %>
-
         <%= activity_fields.label :customised_message do %>
           Customised message<abbr title="required">*</abbr>
         <% end %>
         <textarea id="edition_activity_send_fact_check_attributes_customised_message"
                   name="edition[activity_send_fact_check_attributes][customised_message]"
                   class="form-control" cols="60" rows="14"><%= render :template => 'noisy_workflow/request_fact_check', formats: [:text] %></textarea>
+      <% elsif activity == :publish %>
+        <!--<span class="text-muted">
+          Summary of changes to this edition
+        </span>
+        <div class="lead">
+          Updated the VAT rate
+        </div>
+        <hr />-->
+        <div class="text input optional form-group" id="edition_video_summary_input" style="">
+          <label class="control-label" for="edition_video_summary">Summary of changes to this edition</label>
+          <span class="form-wrapper">
+            <textarea class="form-control input-md-7" id="edition_video_summary" name="edition[video_summary]" rows="5"></textarea>
+          </span>
+          <div class="boolean input optional checkbox" id="edition_in_beta_input" style="background: #ddd; padding: 10px 15px; border-radius: 3px"><label class="control-label" for="x"><input id="x" name="x" type="checkbox">Alert the public to what’s changed</label>
+          </div>
+        </div>
       <% else %>
         <%= activity_fields.input :comment, :as => :text, :input_html => { :cols => 60, :rows => 6 } %>
       <% end %>
