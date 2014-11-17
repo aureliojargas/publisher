@@ -20,12 +20,7 @@
                   <%= action.created_at.to_s(:govuk_date) %>
                 </time>
               </div>
-              <%= action.to_s %> by
-              <% if action.requester %>
-                <%= mail_to action.requester.email, action.requester.name %>
-              <% else %>
-                GOV.UK Bot
-              <% end %>
+              <%= action_title(action) %>
             </h4>
             <% if action_note?(action) %>
               <% if action.comment_sanitized %>

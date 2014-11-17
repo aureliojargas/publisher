@@ -3,6 +3,11 @@ module ActionHelper
     edition.actions.reverse
   end
 
+  def action_title(action)
+    author = action.requester ? (mail_to action.requester.email, action.requester.name) : 'GOV.UK Bot'
+    "#{action.to_s} by #{author}".html_safe
+  end
+
   def action_note?(action)
     action.comment.present? || action.is_fact_check_request? || action.request_type == "assign"
   end
