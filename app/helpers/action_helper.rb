@@ -3,13 +3,35 @@ module ActionHelper
     edition.actions.reverse
   end
 
+  def action_requester(action)
+    action.requester ? (mail_to action.requester.email, action.requester.name).html_safe : 'GOV.UK Bot'
+  end
+
+  def assign_action?(action)
+    action.request_type == Action::ASSIGN
+  end
+
+  def assign_to_other?(action)
+    assign_action?(action) && (action.recipient.email != action.requester.email)
+  end
+
   def action_title(action)
-    author = action.requester ? (mail_to action.requester.email, action.requester.name) : 'GOV.UK Bot'
-    "#{action.to_s} by #{author}".html_safe
+    requester = action_requester(action)
+
+    if assign_action?(action)
+      title = "Assign to #{mail_to action.recipient.email, action.recipient.name}"
+      if assign_to_other?(action)
+        title = "#{title} by #{requester}"
+      end
+    else
+      title = "#{action.to_s} by #{requester}"
+    end
+
+    title.html_safe
   end
 
   def action_note?(action)
-    action.comment.present? || action.is_fact_check_request? || action.request_type == "assign"
+    action.comment.present? || action.is_fact_check_request?
   end
 
   def action_note(action)
@@ -17,8 +39,6 @@ module ActionHelper
       format_and_auto_link_plain_text(action.comment)
     elsif action.is_fact_check_request? && action.email_addresses.present?
       "Request sent to #{mail_to action.email_addresses}".html_safe
-    elsif action.recipient_id.present?
-      "Assigned to #{mail_to action.recipient.email, action.recipient.name}".html_safe
     end
   end
 
