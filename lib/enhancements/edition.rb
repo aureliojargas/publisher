@@ -86,6 +86,11 @@ class Edition
     PublishingAPINotifier.perform_async(self.id.to_s)
   end
 
+  def days_in_review
+    review_requested = self.actions.where(:request_type => Action::REQUEST_REVIEW).last
+    review_requested.created_at
+  end
+
   def last_major_update_at
     last_major_update = self.series.published.where(major_change: true)
                                              .order(version_number: "desc").first
