@@ -1,5 +1,5 @@
 <div class="page-title">
-  <h1>Planned downtime</h1>
+  <h1>Downtime</h1>
 </div>
 
 <!--<a href="#" class="btn btn-success add-bottom-margin">Add downtime</a>-->
@@ -7,8 +7,9 @@
 <table class="table table-bordered table-striped" data-module="filterable-table">
   <thead>
     <tr class="table-header">
-      <td>Transaction</td>
-      <td>Time period</td>
+      <td>Service start page</td>
+      <td>Service status</td>
+      <td>Action</td>
       <!--<td>Assignee</td>
       <td>Updated</td>-->
     </tr>
@@ -22,17 +23,50 @@
     </tr>
   </thead>
   <tbody>
+    <% t = @transactions.last %>
+    <tr>
+      <td>
+        <h4 class="publication-table-title">
+          <a href="/downtime/scheduled"><%= t.title %></a>
+        </h4>
+        <span class="text-muted">/<%= t.slug %></span>
+      </td>
+      <td>
+        Scheduled downtime<br />
+        <span class="text-muted">10 Oct to 11 Oct</span>
+      </td>
+      <td>
+        <a href="#" class="btn btn-default">Edit downtime</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4 class="publication-table-title">
+          <a href="/downtime/liveunplanned"><%= t.title %></a>
+        </h4>
+        <span class="text-muted">/<%= t.slug %></span>
+      </td>
+      <td>
+        Unavailable<br />
+        <span class="text-muted">Unplanned downtime</span>
+      </td>
+      <td>
+        <a href="#" class="btn btn-default">Edit</a>
+        <a href="#" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
     <% @transactions.each do |t| %>
     <tr>
       <td>
         <h4 class="publication-table-title">
-          <a href="/downtime/show"><%= t.title %></a>
+          <a href="/downtime/schedule"><%= t.title %></a>
         </h4>
         <span class="text-muted">/<%= t.slug %></span>
       </td>
-      <td><a href="#" class="btn btn-default">Schedule</a></td>
-      <!--<td><%= t.assignee %></td>
-      <td><%= t.updated_at.to_date.to_s(:govuk_date_short) %></td>-->
+      <td>Live</td>
+      <td>
+        <a href="#" class="btn btn-default">Add downtime</a>
+      </td>
     </tr>
     <% end %>
   </tbody>
