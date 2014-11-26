@@ -1,7 +1,10 @@
 Publisher::Application.routes.draw do
   get '/healthcheck' => 'healthcheck#check'
   get '/downtime' => 'downtime#index'
-  get '/downtime/show' => 'downtime#show'
+  get '/downtime/schedule' => 'downtime#schedule'
+  get '/downtime/scheduled' => 'downtime#scheduled'
+  get '/downtime/unplanned' => 'downtime#unplanned'
+  get '/downtime/liveunplanned' => 'downtime#liveunplanned'
 
   resources :notes do
     put 'resolve', on: :member

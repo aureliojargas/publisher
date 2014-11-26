@@ -15,20 +15,21 @@
     <label class="add-label-margin">Downtime type</label>
     <div class="radio remove-top-margin">
       <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-        Scheduled
-      </label>
-    </div>
-    <div class="radio">
-      <label>
         <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
         Unplanned, the service is currently unavailable
       </label>
     </div>
+    <div class="radio remove-top-margin">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        Scheduled
+      </label>
+    </div>
   </div>
 
+  <div class="well input-md-8">
   <div class="form-group form-inline">
-    <label>Downtime starts</label><br />
+    <label>Starts</label><br />
     <span class="add-right-margin">
     <%= time_select :publish_at, {}, {}, { class: 'date form-control' } %>
     </span>
@@ -38,23 +39,23 @@
   </div>
 
   <div class="form-group form-inline">
-    <label>Downtime ends</label><br />
+    <label>Ends</label><br />
     <span class="add-right-margin">
     <%= time_select :publish_at, {}, {}, { class: 'date form-control' } %>
     </span>
     <%= date_select :publish_at, {}, { order: [:day, :month, :year],
       default: Date.tomorrow, start_year: Date.today.year, end_year: Date.today.year.next },
       { class: 'date form-control' } %>
+  </div>
   </div>
 
   <div class="form-group">
-    <label>Message</label>
-    <textarea class="form-control input-md-8" rows="5"></textarea>
+    <label class="remove-bottom-margin">Message</label>
+    <div class="text-muted add-label-margin">Will display one day before downtime begins, or immediately if sooner</div>
+    <textarea class="form-control input-md-8" rows="3">This service will be unavailable between 3pm on 10 October and 10pm on 11 October</textarea>
   </div>
 
-  <input type="submit" class="btn btn-success" value="Save and schedule">
-
-
-  <input type="submit" class="btn btn-success" value="Save and re-schedule">
-  <input type="submit" class="add-left-margin btn btn-default" value="Cancel downtime">
+  <input type="submit" class="btn btn-success" value="Schedule downtime">
+  <!--<input type="submit" class="btn btn-success" value="Save and re-schedule">
+  <input type="submit" class="add-left-margin btn btn-default" value="Cancel downtime">-->
 </form>
