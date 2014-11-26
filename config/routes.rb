@@ -1,5 +1,7 @@
 Publisher::Application.routes.draw do
   get '/healthcheck' => 'healthcheck#check'
+  get '/downtime' => 'downtime#index'
+  get '/downtime/show' => 'downtime#show'
 
   resources :notes do
     put 'resolve', on: :member

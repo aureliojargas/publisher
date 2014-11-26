@@ -1,0 +1,39 @@
+<div class="page-title">
+  <h1>Planned downtime</h1>
+</div>
+
+<!--<a href="#" class="btn btn-success add-bottom-margin">Add downtime</a>-->
+
+<table class="table table-bordered table-striped" data-module="filterable-table">
+  <thead>
+    <tr class="table-header">
+      <td>Transaction</td>
+      <td>Time period</td>
+      <!--<td>Assignee</td>
+      <td>Updated</td>-->
+    </tr>
+    <tr class="if-no-js-hide table-header-secondary">
+      <td colspan="5">
+        <form>
+          <label for="table-filter" class="rm">Filter organisations</label>
+          <input id="table-filter" type="text" class="form-control normal js-filter-table-input" placeholder="Filter table">
+        </form>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |t| %>
+    <tr>
+      <td>
+        <h4 class="publication-table-title">
+          <a href="/downtime/show"><%= t.title %></a>
+        </h4>
+        <span class="text-muted">/<%= t.slug %></span>
+      </td>
+      <td><a href="#" class="btn btn-default">Schedule</a></td>
+      <!--<td><%= t.assignee %></td>
+      <td><%= t.updated_at.to_date.to_s(:govuk_date_short) %></td>-->
+    </tr>
+    <% end %>
+  </tbody>
+</table>

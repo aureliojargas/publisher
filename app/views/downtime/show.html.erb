@@ -1,0 +1,60 @@
+<ul class="breadcrumb">
+  <li class="crumb"><a href="/downtime">Downtime</a></li>
+  <li class="active"><%= @transaction.title %></li>
+</ul>
+
+<div class="page-title-with-border">
+  <h1>
+    <%= @transaction.title %>
+  </h1>
+</div>
+
+<form action="#" method="post" class="form">
+
+  <div class="form-group">
+    <label class="add-label-margin">Downtime type</label>
+    <div class="radio remove-top-margin">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+        Scheduled
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+        Unplanned, the service is currently unavailable
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group form-inline">
+    <label>Downtime starts</label><br />
+    <span class="add-right-margin">
+    <%= time_select :publish_at, {}, {}, { class: 'date form-control' } %>
+    </span>
+    <%= date_select :publish_at, {}, { order: [:day, :month, :year],
+      default: Date.tomorrow, start_year: Date.today.year, end_year: Date.today.year.next },
+      { class: 'date form-control' } %>
+  </div>
+
+  <div class="form-group form-inline">
+    <label>Downtime ends</label><br />
+    <span class="add-right-margin">
+    <%= time_select :publish_at, {}, {}, { class: 'date form-control' } %>
+    </span>
+    <%= date_select :publish_at, {}, { order: [:day, :month, :year],
+      default: Date.tomorrow, start_year: Date.today.year, end_year: Date.today.year.next },
+      { class: 'date form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <label>Message</label>
+    <textarea class="form-control input-md-8" rows="5"></textarea>
+  </div>
+
+  <input type="submit" class="btn btn-success" value="Save and schedule">
+
+
+  <input type="submit" class="btn btn-success" value="Save and re-schedule">
+  <input type="submit" class="add-left-margin btn btn-default" value="Cancel downtime">
+</form>
