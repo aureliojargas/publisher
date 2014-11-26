@@ -3,55 +3,42 @@
   <li class="active"><%= @transaction.title %></li>
 </ul>
 
-<div class="page-title-with-border">
+<div class="page-title">
   <h1>
-    <%= @transaction.title %>
+    <span class="small"><%= @transaction.title %></span>
+    Schedule downtime
   </h1>
 </div>
 
-<form action="#" method="post" class="form">
+<form action="#" method="post" class="form well remove-top-margin">
+
+    <div class="form-group form-inline">
+      <label>Starts</label><br />
+      <span class="add-right-margin">
+      <%= time_select :publish_at, {}, {}, { class: 'date form-control' } %>
+      </span>
+      <%= date_select :publish_at, {}, { order: [:day, :month, :year],
+        default: Date.tomorrow, start_year: Date.today.year, end_year: Date.today.year.next },
+        { class: 'date form-control' } %>
+    </div>
+
+    <div class="form-group form-inline">
+      <label>Ends</label><br />
+      <span class="add-right-margin">
+      <%= time_select :publish_at, {}, {}, { class: 'date form-control' } %>
+      </span>
+      <%= date_select :publish_at, {}, { order: [:day, :month, :year],
+        default: Date.tomorrow, start_year: Date.today.year, end_year: Date.today.year.next },
+        { class: 'date form-control' } %>
+    </div>
+
+    <p class="text-muted add-top-margin">
+      Dates should be for the service’s planned downtime.
+      <br />Messages appear on the start page one day before the downtime is due.
+    </p>
 
   <div class="form-group">
-    <label class="add-label-margin">Downtime type</label>
-    <div class="radio remove-top-margin">
-      <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-        Unplanned, the service is currently unavailable
-      </label>
-    </div>
-    <div class="radio remove-top-margin">
-      <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-        Scheduled
-      </label>
-    </div>
-  </div>
-
-  <div class="well input-md-8">
-  <div class="form-group form-inline">
-    <label>Starts</label><br />
-    <span class="add-right-margin">
-    <%= time_select :publish_at, {}, {}, { class: 'date form-control' } %>
-    </span>
-    <%= date_select :publish_at, {}, { order: [:day, :month, :year],
-      default: Date.tomorrow, start_year: Date.today.year, end_year: Date.today.year.next },
-      { class: 'date form-control' } %>
-  </div>
-
-  <div class="form-group form-inline">
-    <label>Ends</label><br />
-    <span class="add-right-margin">
-    <%= time_select :publish_at, {}, {}, { class: 'date form-control' } %>
-    </span>
-    <%= date_select :publish_at, {}, { order: [:day, :month, :year],
-      default: Date.tomorrow, start_year: Date.today.year, end_year: Date.today.year.next },
-      { class: 'date form-control' } %>
-  </div>
-  </div>
-
-  <div class="form-group">
-    <label class="remove-bottom-margin">Message</label>
-    <div class="text-muted add-label-margin">Will display one day before downtime begins, or immediately if sooner</div>
+    <label>Message</label>
     <textarea class="form-control input-md-8" rows="3">This service will be unavailable between 3pm on 10 October and 10pm on 11 October</textarea>
   </div>
 
