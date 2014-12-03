@@ -1,0 +1,32 @@
+.CodeMirror {
+  font-family: "nta", "Helvetica Neue";
+  font-size: 19px;
+  padding: 20px;
+  border: 1px solid $table-border-color;
+  border-radius: $border-radius-base;
+  height: auto;
+
+  @extend .input-md-8;
+}
+
+.CodeMirror-focused .CodeMirror-selected {
+  background: #b3d4fd;
+}
+
+.CodeMirror pre {
+  line-height: 1.31579;
+  color: #0B0C0C;
+}
+
+.cm-s-govuk .cm-header-1 {
+  font-size: 27px;
+}
+
+.cm-s-govuk .cm-header-2 {
+  font-size: 24px;
+}
+
+.cm-s-govuk .cm-link,
+.cm-s-govuk .cm-string {
+  color: #005ea5;
+}

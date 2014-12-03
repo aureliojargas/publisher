@@ -1,6 +1,7 @@
 //= require select2
 //= require jquery-ui.custom.min
 //= require codemirror
+//= require codemirror/modes/markdown
 //= require_directory .
 //= require_directory ./modules
 //= require jquery_nested_form
