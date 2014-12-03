@@ -23,7 +23,7 @@
           <%= f.input :body,
                       :as => :text,
                       :required => true,
-                      :input_html => {:rows => '25', :disabled => @resource.locked_for_edits? } %>
+                      :input_html => {:rows => '25', :disabled => @resource.locked_for_edits?, class: 'js-markdown' } %>
 
           <%= f.input :order, :as => :hidden, :input_html => { :class => 'order', :disabled => !editable } %>
 

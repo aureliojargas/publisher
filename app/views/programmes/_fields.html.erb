@@ -4,33 +4,21 @@
 
 <hr>
 
-<div class="row">
+<div data-module="collapsible-group"
+  data-expand-text="Expand all parts"
+  data-collapse-text="Collapse all parts"
+>
+  <h3 class="remove-top-margin">Parts</h3>
+  <p class="add-bottom-margin if-no-js-hide">
+    <a href="#" class="js-toggle-all">Collapse all parts</a>
+  </p>
 
-  <div class="col-md-8"
-    data-module="collapsible-group"
-    data-expand-text="Expand all parts"
-    data-collapse-text="Collapse all parts"
-  >
-    <h3 class="remove-top-margin">Parts</h3>
-    <p class="add-bottom-margin if-no-js-hide">
-      <a href="#" class="js-toggle-all">Collapse all parts</a>
-    </p>
+  <section class="panel-group" id="parts">
+    <%= f.semantic_fields_for :parts, @ordered_parts do |part| %>
+      <%= render :partial => '/shared/part', :locals => { :f => part, :editable => false } %>
+    <% end %>
+  </section>
 
-    <section class="panel-group" id="parts">
-      <%= f.semantic_fields_for :parts, @ordered_parts do |part| %>
-        <%= render :partial => '/shared/part', :locals => { :f => part, :editable => false } %>
-      <% end %>
-    </section>
-
-  </div>
-
-  <div class="col-md-4">
-    <h3 class="remove-top-margin add-bottom-margin">Govspeak help</h3>
-
-    <div class="well">
-      <%= render "../shared/govspeak_help" %>
-    </div>
-  </div>
 </div>
 
 <%= render partial: 'shared/common_edition_tags', locals: {f: f} %>

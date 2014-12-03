@@ -5,7 +5,7 @@
               :as => :text,
               :label => 'Introductory paragraph',
               :hint => 'Set the scene for the user. What is about to happen? (eg. "you will need to fill in a form, print it out and take it to the post office")',
-              :input_html => { :rows => 2, :disabled => @resource.locked_for_edits?, :class => 'input-md-10' } %>
+              :input_html => { :rows => 2, :disabled => @resource.locked_for_edits?, :class => 'input-md-10 js-markdown' } %>
 
   <%= f.input :will_continue_on,
               :hint => 'Text to follow the statement "This will continue on". eg. "the HMRC website"',
@@ -18,7 +18,7 @@
 
   <%= f.input :more_information,
               :as => :text,
-              :input_html => { :disabled => @resource.locked_for_edits?, :class => 'input-md-10' } %>
+              :input_html => { :disabled => @resource.locked_for_edits?, :class => 'input-md-10 js-markdown' } %>
 
   <%= f.input :alternate_methods,
               :as => :text,
@@ -37,7 +37,7 @@
               :as => :text,
               :label => 'What you need to know',
               :wrapper_html => { :class => 'add-top-margin' },
-              :input_html => { :rows => 4, :disabled => @resource.locked_for_edits?, :class => 'input-md-7' } %>
+              :input_html => { :rows => 4, :disabled => @resource.locked_for_edits?, :class => 'input-md-7 js-markdown' } %>
 <% end %>
 
 <%= render partial: 'shared/common_edition_tags', locals: {f: f} %>

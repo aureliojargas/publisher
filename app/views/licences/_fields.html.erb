@@ -14,11 +14,11 @@
   <%= f.input :licence_short_description,
         :as => :text,
         :hint => 'One line curated description, will appear in Licence Finder results',
-        :input_html => { :rows => 2, :disabled => @resource.locked_for_edits?, class: 'input-md-7' } %>
+        :input_html => { :rows => 2, :disabled => @resource.locked_for_edits?, class: 'input-md-7 js-markdown' } %>
 
   <%= f.input :licence_overview,
         :as => :text,
-        :input_html => { :disabled => @resource.locked_for_edits?, class: 'input-md-10' } %>
+        :input_html => { :disabled => @resource.locked_for_edits?, class: 'input-md-10 js-markdown' } %>
 
 <% end %>
 
