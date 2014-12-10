@@ -4,6 +4,45 @@
   margin-bottom: 63px;
 }
 
+.workflow-message {
+  padding: 12px 0;
+  border: 1px solid;
+  font-size: 18px;
+  background: #eee;
+  border-color: #ddd;
+
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 40px;
+  right: 40px;
+
+  -webkit-transition: bottom 500ms;
+  transition: bottom 500ms;
+}
+
+.workflow-message-saving {
+  bottom: 50px;
+}
+
+.workflow-message-saved {
+  background: $state-success-bg;
+  color: $state-success-text;
+  border-color: $state-success-border;
+  bottom: 50px;
+}
+
+.workflow-message-error {
+  background: $state-danger-bg;
+  color: $state-danger-text;
+  border-color: $state-danger-border;
+  bottom: 50px;
+}
+
+.workflow-message-inactive {
+  bottom: 0;
+}
+
 .workflow-buttons form {
   display: inline-block;
 }
