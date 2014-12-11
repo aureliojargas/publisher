@@ -3,11 +3,16 @@
       <a data-toggle="collapse" class="panel-title bold" href="#body<%= edition.version_number %>">
         <i class="glyphicon glyphicon-smaller-than-text glyphicon-chevron-down add-right-margin"></i>Edition <%= edition.version_number %>
       </a>
-      <% if edition.version_number > 1 %>
-        <%= link_to "Compare with edition #{edition.version_number - 1}",
-                    diff_edition_path(edition),
-                    class: "pull-right" %>
-      <% end %>
+      <span class="pull-right">
+        <% if edition_counter == 0 && resource.safe_to_preview? %>
+        <%= link_to "Preview", preview_edition_path(edition) %>
+        <% end %>
+        <% if edition.version_number > 1 %>
+          <%= link_to "Compare with ##{edition.version_number - 1}",
+                      diff_edition_path(edition),
+                      class: 'add-left-margin' %>
+        <% end %>
+      </span>
     </div>
 
     <div class="panel-collapse collapse<% if edition_counter == 0 %> in<% end %>" id="body<%= edition.version_number %>">
