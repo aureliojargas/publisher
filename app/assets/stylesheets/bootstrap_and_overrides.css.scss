@@ -17,8 +17,12 @@
   left: 40px;
   right: 40px;
 
-  -webkit-transition: bottom 500ms;
-  transition: bottom 500ms;
+  -webkit-transition: bottom 200ms;
+  transition: bottom 200ms;
+}
+
+.workflow-message-hide {
+  bottom: 0 !important;
 }
 
 .workflow-message-saving {
