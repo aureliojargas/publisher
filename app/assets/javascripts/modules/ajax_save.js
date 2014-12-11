@@ -22,13 +22,15 @@
 
         }, 2000);*/
 
-        $.ajax({
-          url : url,
-          type : 'POST',
-          data : element.serialize(),
-          success : success,
-          error: error
-        });
+        setTimeout(function() {
+          $.ajax({
+            url : url,
+            type : 'POST',
+            data : element.serialize(),
+            success : success,
+            error: error
+          });
+        }, 1000);
       }
 
       function success(response) {
@@ -80,6 +82,7 @@
       }
 
       function reset() {
+        //message.removeClass("yellow-fade");
         hideErrors();
         clearTimeout(hideTimeout);
         message.removeClass(function (index, css) {

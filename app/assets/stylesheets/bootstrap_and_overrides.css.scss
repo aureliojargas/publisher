@@ -6,45 +6,48 @@
 
 .workflow-message {
   padding: 12px 0;
-  border: 1px solid;
+  border-top: 5px solid;
   font-size: 18px;
   background: #eee;
-  border-color: #ddd;
+  border-color: #ccc;
 
   text-align: center;
   position: fixed;
-  bottom: 0;
-  left: 40px;
-  right: 40px;
+  bottom: -57px;
+  left: 0;
+  right: 0;
 
   -webkit-transition: bottom 200ms;
   transition: bottom 200ms;
+  z-index: 1031;
 }
 
 .workflow-message-hide {
-  bottom: 0 !important;
+  bottom: -57px !important;
 }
 
 .workflow-message-saving {
-  bottom: 50px;
+  bottom: 0;
 }
 
 .workflow-message-saved {
   background: $state-success-bg;
   color: $state-success-text;
-  border-color: $state-success-border;
-  bottom: 50px;
+  //border-color: $state-success-border;
+  border-color: #53ad53;
+  bottom: 0;
 }
 
 .workflow-message-error {
   background: $state-danger-bg;
   color: $state-danger-text;
-  border-color: $state-danger-border;
-  bottom: 50px;
+  //border-color: $state-danger-border;
+  border-color: #d9534f;
+  bottom: 0;
 }
 
 .workflow-message-inactive {
-  bottom: 0;
+  bottom: -57px;
 }
 
 .workflow-buttons form {
