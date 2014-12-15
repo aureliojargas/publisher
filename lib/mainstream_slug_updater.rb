@@ -1,10 +1,13 @@
 class MainstreamSlugUpdater
 
-  def initialize(old_slug, new_slug, logger = nil)
+  def initialize(old_slug, new_slug, user, logger = nil)
     @old_slug = old_slug.sub(/^\//, '')
     @new_slug = new_slug.sub(/^\//, '')
+    @user = user
     @logger = logger || Logger.new(nil)
   end
+
+  attr_reader :user
 
   def update
     update_slug_on_all_editions
@@ -22,10 +25,6 @@ private
     :new_slug,
     :logger
   )
-
-  def user
-    @user ||= User.find_or_create_by(name: "2nd Line Support")
-  end
 
   def editions
     @editions ||= Edition.where(slug: old_slug).to_a

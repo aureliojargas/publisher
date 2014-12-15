@@ -11,6 +11,10 @@ This task performs the following:
 - Re-registers the published edition with panopticon,
   which re-registers with search
 "
-task :update_mainstream_slug, [:old_slug, :new_slug] => :environment do |_task, args|
-  MainstreamSlugUpdater.new(args[:old_slug], args[:new_slug], Logger.new(STDOUT)).update
+task :update_mainstream_slug, [:old_slug, :new_slug, :user_name] => :environment do |_task, args|
+  users = User.where(:name => args[:user_name])
+  unless users.size == 1
+    raise "Failed to find unique user with name #{args[:user_name]}"
+  end
+  MainstreamSlugUpdater.new(args[:old_slug], args[:new_slug], users.first, Logger.new(STDOUT)).update
 end
