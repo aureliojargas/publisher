@@ -27,6 +27,27 @@
     </div>
   </div>
 <% end %>
+
+<div class="callout callout-warning add-bottom-margin">
+  <h2 class="callout-title">Recent viewers</h2>
+  <ul class="callout-body list-unstyled remove-bottom-margin">
+    <li>Natalie Shaw – 2 mins ago</li>
+    <li>Jon Sangar – 10 mins ago</li>
+  </ul>
+</div>
+
+<div class="callout callout-danger add-bottom-margin">
+  <ul class="callout-body list-unstyled remove-bottom-margin">
+    <li>Jon Sangar is editing this edition</li>
+  </ul>
+</div>
+
+<div class="callout callout-danger add-bottom-margin">
+  <ul class="callout-body list-unstyled remove-bottom-margin">
+    <li>Jon Sangar is viewing this edition</li>
+  </ul>
+</div>
+
 <% if @resource.artefact.state == "archived" %>
   <div class="callout callout-danger add-bottom-margin">
     <h2 class="callout-title">You can’t edit this publication</h2>
