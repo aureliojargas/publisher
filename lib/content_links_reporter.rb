@@ -19,7 +19,9 @@ class ContentLinksReporter
         if body_content = whole_body(edition)
           links = whole_body(edition).scan(link_regex)
           unless links.empty?
-            csv << [edition.slug, edition._type, links.flatten.join(", ")]
+            links = links.flatten.join(",")
+            links.gsub!("(","").gsub!(")","")
+            csv << [edition.slug, edition._type, links]
             matching_editions << edition.slug
           end
         end
