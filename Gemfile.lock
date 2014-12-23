@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/alphagov/govuk_content_models.git
-  revision: bf8e2f1693ae7bb8085ba36488316fd0d16177ac
+  revision: 4c9361b46bdaf891359c353481aa4f9fabdf83ae
   branch: add-downtime-schedule
   specs:
     govuk_content_models (28.0.0)
@@ -136,7 +136,7 @@ GEM
     hike (1.2.3)
     hitimes (1.2.2)
     htmlentities (4.3.2)
-    i18n (0.6.11)
+    i18n (0.7.0)
     inherited_resources (1.4.0)
       has_scope (~> 0.5.0)
       responders (~> 0.9)
