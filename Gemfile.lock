@@ -202,7 +202,7 @@ GEM
       omniauth (~> 1.2)
     phantomjs (1.9.7.1)
     plek (1.9.0)
-    poltergeist (1.5.0)
+    poltergeist (1.6.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
@@ -318,7 +318,9 @@ GEM
     webmock (1.8.7)
       addressable (>= 2.2.7)
       crack (>= 0.1.7)
-    websocket-driver (0.4.0)
+    websocket-driver (0.5.1)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.1)
     whenever (0.9.4)
       chronic (>= 0.6.3)
     xpath (2.0.0)
@@ -360,7 +362,7 @@ DEPENDENCIES
   nested_form!
   null_logger
   plek (= 1.9.0)
-  poltergeist (= 1.5.0)
+  poltergeist (= 1.6.0)
   rails (= 3.2.18)
   rails_autolink (= 1.1.6)
   redis (= 3.0.7)

@@ -80,7 +80,7 @@ group :test do
   gem 'database_cleaner', '0.8.0'
 
   gem 'capybara', '2.4.4'
-  gem 'poltergeist', '1.5.0'
+  gem 'poltergeist', '1.6.0'
   gem 'launchy', '2.1.1'
 
   gem 'webmock', '1.8.7'
