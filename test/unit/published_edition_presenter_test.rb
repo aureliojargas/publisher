@@ -5,6 +5,7 @@ class PublishedEditionPresenterTest < ActiveSupport::TestCase
 
   context ".render_for_publishing_api" do
     setup do
+      artefact = create(:artefact, content_id: 'SOME-UUID-FROM-JACK')
       @edition = FactoryGirl.create(:edition, :published,
         browse_pages: ["tax/vat", "tax/capital-gains"],
         primary_topic: "oil-and-gas/wells",
@@ -13,6 +14,7 @@ class PublishedEditionPresenterTest < ActiveSupport::TestCase
         updated_at: 1.minute.ago,
         change_note: 'Test',
         version_number: 2,
+        panopticon_id: artefact.id,
       )
 
       @presenter = PublishedEditionPresenter.new(@edition)
@@ -26,6 +28,7 @@ class PublishedEditionPresenterTest < ActiveSupport::TestCase
         public_updated_at: @edition.updated_at,
         publishing_app: "publisher",
         rendering_app: "frontend",
+        content_id: "SOME-UUID-FROM-JACK",
         routes: [ { path: "/#{@edition.slug}", type: "exact" }],
         redirects: [],
         update_type: "major",

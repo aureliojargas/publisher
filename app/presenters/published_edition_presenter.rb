@@ -13,6 +13,7 @@ class PublishedEditionPresenter
       public_updated_at: @edition.public_updated_at,
       publishing_app: "publisher",
       rendering_app: "frontend",
+      content_id: @edition.content_id,
       routes: [
         {path: base_path, type: "exact"}
       ],
