@@ -1,6 +1,7 @@
 class PublishedEditionPresenter
   def initialize(edition)
     @edition = edition
+    @artefact = edition.artefact
   end
 
   def render_for_publishing_api(options={})
@@ -13,7 +14,7 @@ class PublishedEditionPresenter
       public_updated_at: @edition.public_updated_at,
       publishing_app: "publisher",
       rendering_app: "frontend",
-      content_id: @edition.content_id,
+      content_id: @artefact.content_id,
       routes: [
         {path: base_path, type: "exact"}
       ],
